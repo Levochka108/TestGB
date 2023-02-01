@@ -12,26 +12,35 @@ static void Main(string[] args)
     string[] testArray = new string[4];
 
     int arrayLength = testArray.Length;
-
-    string[] tempArray = new string[testArray.Length];
     
+    int count = 0;
+
     Console.WriteLine("Заполните массив данными. Внимание, должнобыть хотябы 2 значения с длинной не больше 3 символов.");
     Thread.Sleep(1000);
     for (int i = 0; i < arrayLength; i++)
     {
         Console.Write("Enter: ");
         testArray[i] = Console.ReadLine()!;
+        if (testArray[i].Length <= 3)
+        {
+            count++;
+        }
     }
 
     Console.WriteLine("Происходит обработка нового массива.");
     Thread.Sleep(1000);
     Console.WriteLine("Подождите.");
 
+    string[] newArray = new string[count];
+  
+    Console.WriteLine($"{ "Создано"} {newArray.Length } {"ячейки под массив."} ");
+
+
     for (int i = 0; i < 10; i++)
     {
         if (i == 0)
         {
-            Console.WriteLine("Загрузка");
+            Console.Write("Загрузка: ");
         }
         else
         {
@@ -47,22 +56,22 @@ static void Main(string[] args)
     Thread.Sleep(1000);
     Console.WriteLine();
 
-    string[] tempArray2 = new string[arrayLength];
-
-    Console.WriteLine($"Запись произведина");
+    Console.WriteLine($"Запись произведина!");
     
-    for (int j = 0; j < tempArray.Length; j++)
+    for (int j = 0, k =0; j < arrayLength; j++, k++)
     {
-
         if (testArray[j].Length <= 3)
         {
-            
-            for(int k = 0; k < 1;k++)
-            {
-                tempArray2[k] = testArray[j];
-                Console.Write($"{tempArray2[k]} ");
-            }
+            newArray[k] = testArray[j];        
+            Console.Write($"[{newArray[k]} новый массив index => {k}, старый index => {j}]");
+                    
         }
+        else if (testArray[j].Length > 3)
+        {
+           k--; 
+        } 
+                   
+        
     }
 }
 Main(args);
