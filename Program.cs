@@ -7,12 +7,15 @@
 При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 ---
 */
+
 static void Main(string[] args)
 {
+
+
     string[] testArray = new string[4];
 
     int arrayLength = testArray.Length;
-    
+
     int count = 0;
 
     Console.WriteLine("Заполните массив данными. Внимание, должнобыть хотябы 2 значения с длинной не больше 3 символов.");
@@ -21,19 +24,17 @@ static void Main(string[] args)
     {
         Console.Write("Enter: ");
         testArray[i] = Console.ReadLine()!;
-        if (testArray[i].Length <= 3)
-        {
-            count++;
-        }
+
+        if (testArray[i].Length <= 3) count++;
     }
 
-    Console.WriteLine("Происходит обработка нового массива.");
+    Console.WriteLine("Происходит обработка массива.");
     Thread.Sleep(1000);
     Console.WriteLine("Подождите.");
 
     string[] newArray = new string[count];
-  
-    Console.WriteLine($"{ "Создано"} {newArray.Length } {"ячейки под массив."} ");
+
+    Console.WriteLine($"{"Создано"} {newArray.Length} {"ячейки под массив."} ");
 
 
     for (int i = 0; i < 10; i++)
@@ -57,21 +58,16 @@ static void Main(string[] args)
     Console.WriteLine();
 
     Console.WriteLine($"Запись произведина!");
-    
-    for (int j = 0, k =0; j < arrayLength; j++, k++)
+
+    for (int j = 0, k = 0; j < arrayLength; j++, k++)
     {
         if (testArray[j].Length <= 3)
         {
-            newArray[k] = testArray[j];        
+            newArray[k] = testArray[j];
             Console.Write($"[{newArray[k]} новый массив index => {k}, старый index => {j}]");
-                    
         }
-        else if (testArray[j].Length > 3)
-        {
-           k--; 
-        } 
-                   
-        
+        else if (testArray[j].Length > 3) k--;
     }
+
 }
 Main(args);
