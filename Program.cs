@@ -1,13 +1,10 @@
 ﻿/*
 ## Задача 1
-## Написать программу!
----
-Которая из имеющихся строк массива формирует массив из строк, дринна которых меньше либо равно  3 символам. 
+## Написать программу, которая из имеющихся строк массива формирует массив из строк, дринна которых меньше либо равно  3 символам. 
 Первоначальнаый массив можно ввести с клавиатуры, либо задать на старте выполнения алгоритма. 
 При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 ---
 */
-
 static void Main(string[] args)
 {
 
@@ -36,29 +33,30 @@ static void Main(string[] args)
 
     Console.WriteLine($"{"Создано"} {newArray.Length} {"ячейки под массив."} ");
 
-
-    for (int i = 0; i < 10; i++)
+    if (count != 0)
     {
-        if (i == 0)
+        for (int i = 0; i < 10; i++)
         {
-            Console.Write("Загрузка: ");
-        }
-        else
-        {
-            if (i == 9)
+            if (i == 0)
             {
-                Console.Write(". 100%");
+                Console.Write("Загрузка: ");
             }
+            else
+            {
+                if (i == 9)
+                {
+                    Console.Write(". 100%");
+                }
+            }
+            Thread.Sleep(300);
+            Console.Write($".");
         }
-        Thread.Sleep(300);
-        Console.Write($".");
     }
-
     Thread.Sleep(1000);
     Console.WriteLine();
-
-    Console.WriteLine($"Запись произведина!");
-
+    if (count != 0)
+        Console.WriteLine($"Запись произведина!");
+    else if (count == 0) Console.WriteLine($"Ошибка ввода!"); ;
     for (int j = 0, k = 0; j < arrayLength; j++, k++)
     {
         if (testArray[j].Length <= 3)
